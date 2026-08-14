@@ -1,0 +1,397 @@
+/* Baixa as fontes usadas no site */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+/* Guarda as cores fontes e tamanhos usados no site */
+:root {
+  --color-background: #0b1120; /* Fundo do site */
+  --color-panel: #121a2e; /* Fundo dos cards terminal e contatos */
+  --color-panel-hover: #17203a; /* Fundo quando passa o mouse no painel */
+  --color-border: #24304a; /* Cor das bordas e linhas */
+  --color-text: #e7e4da; /* Cor do texto principal */
+  --color-text-muted: #8b93a7; /* Cor do texto secundário */
+  --color-amber: #f2a93b; /* Amarelo dos comandos links e estados */
+  --color-teal: #4fd1c5; /* Verde dos prompts ícones e respostas */
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace; /* Fonte com letras do mesmo tamanho */
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif; /* Fonte usada nos textos comuns */
+  --content-width: 880px; /* Largura máxima do conteúdo */
+}
+
+/* Faz padding e borda entrarem no tamanho dos elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Faz a página ocupar a tela inteira */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Coloca a cor de fundo do root */
+body {
+  background: var(--color-background);
+}
+
+/* Faz os links usarem a cor do lugar onde estão */
+a {
+  color: inherit;
+}
+
+/* Pega tudo dentro de className app */
+.app {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* Cabeçalho que fica no topo */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(11 17 32 / 85%);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(6px); /* Deixa o fundo meio transparente */
+}
+
+/* Centraliza o conteúdo do cabeçalho sem diminuir o fundo */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+/* Faz danilo@portfolio parecer um prompt */
+.terminal-brand {
+  color: var(--color-amber);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+/* Pega a nav com os links do cabeçalho */
+.site-nav {
+  display: flex;
+  gap: 24px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* Centraliza o conteúdo principal */
+.main-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Pega a primeira section com a apresentação */
+.hero {
+  padding: 72px 0 48px;
+}
+
+/* Caixa que parece um terminal */
+.terminal-window {
+  overflow: hidden;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+/* Cria a barra no topo do terminal */
+.terminal-bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Transforma os span da barra em bolinhas */
+.terminal-bar span {
+  width: 10px;
+  height: 10px;
+  background: var(--color-border);
+  border-radius: 50%;
+}
+
+/* Guarda o cifrão o whoami e o cursor na mesma linha */
+.terminal-command {
+  padding: 24px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+}
+
+/* Muda a cor do cifrão */
+.terminal-prompt {
+  color: var(--color-teal);
+}
+
+/* Cria o cursor retangular */
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--color-amber);
+  animation: blink 1s step-end infinite;
+}
+
+/* Faz o cursor piscar */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Deixa o título entre 24 e 34 pixels */
+.hero h1 {
+  margin: 18px 0 6px;
+  font-family: var(--font-mono);
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+/* Muda o parágrafo do curso e universidade */
+.hero-course {
+  margin: 0 0 4px;
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+/* Muda o texto que fica abaixo do curso */
+.hero-details {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* Cria o espaço de cada seção */
+.section {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Faz o título da seção parecer um comando */
+.section-command {
+  font-weight: 400;
+  margin: 0 0 16px;
+  color: var(--color-amber);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Muda a mensagem antes dos projetos */
+.projects-intro {
+  margin: 0 0 24px;
+  color: var(--color-text-muted);
+  font-size: 14.5px;
+}
+
+/* Destaca o link para todos os repositórios */
+.projects-intro-link {
+  color: var(--color-amber);
+  font-family: var(--font-mono);
+  text-decoration: none;
+}
+
+/* Separa o título dos projetos coletivos */
+.collective-command {
+  margin-top: 40px;
+}
+
+/* Guarda as linhas de habilidades */
+.skills-list {
+  display: grid;
+  gap: 14px;
+}
+
+/* Guarda a categoria e suas habilidades na mesma linha */
+.skill-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Muda o nome de cada categoria */
+.skill-category {
+  color: var(--color-teal);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* Muda a lista de habilidades */
+.skill-row p {
+  color: var(--color-text-muted);
+  font-size: 14.5px;
+}
+
+/* Guarda as img em grid */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Mantém a proporção das img */
+.stats-grid img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+/* Monta o painel de cada projeto */
+.project-card {
+  margin-bottom: 16px;
+  padding: 20px 24px;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+/* Guarda a primeira linha do card */
+.project-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* Muda o GET do card */
+.project-method {
+  color: var(--color-teal);
+}
+
+.project-path {
+  color: var(--color-text-muted);
+}
+
+/* Monta o selo do projeto */
+.project-status {
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+/* Muda o selo dos projetos prontos */
+.status-success {
+  color: var(--color-teal);
+}
+
+/* Muda o selo dos projetos em andamento */
+.status-progress {
+  color: var(--color-amber);
+}
+
+.project-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.project-description {
+  margin: 0 0 12px;
+  color: var(--color-text-muted);
+  font-size: 14.5px;
+}
+
+/* Guarda as tecnologias do projeto */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* Muda cada tag de tecnologia */
+.tag {
+  padding: 2px 8px;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+/* Muda o link no final do card */
+.repository-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-amber);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* Muda o aviso dos projetos sem código público */
+.repository-restricted {
+  display: inline-block;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* Guarda os contatos */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Monta cada botão de contato */
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* Muda o ícone dos contatos */
+.contact-link svg {
+  color: var(--color-teal);
+  fill: var(--color-teal);
+}
+
+/* Monta o rodapé */
+.site-footer {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* Em tela pequena coloca a categoria acima das habilidades */
+@media (max-width: 600px) {
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}
+
+/* Desliga as animações se o usuário ativar reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink {
+    animation: none;
+  }
+}
